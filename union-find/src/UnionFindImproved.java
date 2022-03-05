@@ -41,8 +41,6 @@ public class UnionFindImproved {
                 break;
             }
         }
-        System.out.println(Arrays.toString(parent));
-        System.out.println(Arrays.toString(rank));
         if(hasCycle)
             System.out.println("The graph has cycle");
         else

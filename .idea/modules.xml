@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/Searching/Searching.iml" filepath="$PROJECT_DIR$/Searching/Searching.iml" />
       <module fileurl="file://$PROJECT_DIR$/Sorting/Sorting.iml" filepath="$PROJECT_DIR$/Sorting/Sorting.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/algo-and-data-structures.iml" filepath="$PROJECT_DIR$/.idea/algo-and-data-structures.iml" />
+      <module fileurl="file://$PROJECT_DIR$/graph-algorithms/graph-algorithms.iml" filepath="$PROJECT_DIR$/graph-algorithms/graph-algorithms.iml" />
       <module fileurl="file://$PROJECT_DIR$/union-find/union-find.iml" filepath="$PROJECT_DIR$/union-find/union-find.iml" />
     </modules>
   </component>
