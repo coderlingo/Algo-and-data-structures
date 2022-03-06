@@ -21,7 +21,7 @@ BFS, DFS even though have search in their names are different approaches of trav
 structure.
 
 ###Shortest path algorithms
-* DAG 
+* DAG Relaxation
 * Bellman ford
 * Dijkstra's
 * Floyd's
