@@ -11,7 +11,8 @@ edges for the graph.
 ###Traversal Algorithm 
 * Breadth first search 
 * Depth first search 
-     #### Tree Traversal 
+
+#### Tree Traversal 
 * Inorder traversal 
 * Pre order traversal 
 * Post order traversal 
