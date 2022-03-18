@@ -20,19 +20,7 @@ public class Kruskals {
             rank[b] ++;
         }
     }
-    public static void kruskal(List<int[]> mst, int[][] edges, int[] parent, int[] rank) {
-        for(int[] edge : edges) {
-            int p1 = find(edge[0], parent);
-            int p2 = find(edge[1], parent);
-            if(p1!=p2) {
-                mst.add(edge);
-                union(parent,rank,p1,p2);
-            }
-        }
-    }
-    public static void main (String[] args) {
-        int[][] edges = {{0,1,10},{1,3,15},{3,2,4},{2,0,6},{0,3,5}};
-        int n = 5;
+    public static void kruskal(List<int[]> mst, int[][] edges, int n) {
         Arrays.sort(edges, new Comparator<int[]>() {
             @Override
             public int compare(int[] o1, int[] o2) {
@@ -45,9 +33,20 @@ public class Kruskals {
             parent[i] = i;
             rank[i] = 1;
         }
+        for(int[] edge : edges) {
+            int p1 = find(edge[0], parent);
+            int p2 = find(edge[1], parent);
+            if(p1!=p2) {
+                mst.add(edge);
+                union(parent,rank,p1,p2);
+            }
+        }
+    }
+    public static void main (String[] args) {
+        int[][] edges = {{0,1,10},{1,3,15},{3,2,4},{2,0,6},{0,3,5}};
+        int n = 5;
         List<int[]> mst = new LinkedList<>();
-        kruskal(mst,edges,parent,rank);
+        kruskal(mst,edges,n);
         mst.stream().forEach(e->System.out.println(e[0]+" "+e[1]+"\n"));
-
     }
 }
