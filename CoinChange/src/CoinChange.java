@@ -39,22 +39,17 @@ public class CoinChange {
         return dp[sum];
     }
     public static int minCount(int[] nums, int sum) {
-        int[][] dp = new int[nums.length][sum+1];
-        dp[0][0] = 1;
-        for(int i = 1;i<=sum;i++) {
-            if(i-nums[0]>=0) {
-                dp[0][i] = dp[0][i-nums[0]]+1;
-            }
-        }
-        for(int j=1;j<nums.length;j++) {
-            dp[j][0] = 1;
+        int dp[] = new int[sum+1];
+        Arrays.fill(dp,Integer.MAX_VALUE);
+        dp[0] = 0;
+        for(int j=0;j<nums.length;j++) {
             for(int i=1;i<=sum;i++) {
-                if(i-nums[j]>=0) {
-                    dp[j][i] = Math.min(dp[j-1][i],dp[j][i-nums[j]]+1);
+                if(i-nums[j]>=0 && dp[i-nums[j]]!=Integer.MAX_VALUE) {
+                    dp[i] = Math.min(dp[i],dp[i-nums[j]]+1);
                 }
             }
         }
-        return dp[nums.length-1][sum];
+        return dp[sum];
     }
     public static void helperDistinctVal(int idx, int[] candidates, int target, List<List<Integer>> result, List<Integer> cur) {
         if(target == 0) {
@@ -106,21 +101,25 @@ public class CoinChange {
         int sum1 = 4;
         System.out.println(countCombination(arr1,sum1));
         System.out.println("##################################");
+
         // Problem 2: Count of all permutations of getting a sum
         int[] arr2 = {1,2,3};
         int sum2 = 4;
         System.out.println(countPermutation(arr2,sum2));
         System.out.println("##################################");
+
         // Problem 3: Min no. of values to make a sum
-        int[] arr3 = {2,3,6,7};
-        int sum3 = 7;
+        int[] arr3 = {9, 6, 5, 1};
+        int sum3 = 11;
         System.out.println(minCount(arr3,sum3));
         System.out.println("##################################");
+
         // Problem 4: Return all solutions where sum is K with distinct values
         int[] arr4 = {2,3,6,7};
         int sum4 = 7;
         solutionDistinctVal(arr4,sum4).stream().forEach(e->System.out.print(e+" "));
         System.out.println("\n##################################");
+
         // Problem 5: Return all distinct solutions where sum is K with non-distinct values
         int[] arr5 = {10,1,2,7,6,1,5};
         int sum5 = 8;
