@@ -95,6 +95,18 @@ public class CoinChange {
         helperNonDistinctVal(0,nums,sum,result,cur);
         return result;
     }
+
+    public static int knapSack(int W, int[] wt, int[] val, int n) {
+        int[] dp = new int[W+1];
+        for(int i = 0;i<n;i++) {
+            for(int j=W;j>0;j--) {
+                if(wt[i]<=j) {
+                    dp[j] = Math.max(val[i]+dp[j-wt[i]],dp[j]);
+                }
+            }
+        }
+        return dp[W];
+    }
     public static void main(String args[]) {
         // Problem 1: Count of all combinations of getting a sum
         int[] arr1 = {1,2,3};
@@ -124,5 +136,13 @@ public class CoinChange {
         int[] arr5 = {10,1,2,7,6,1,5};
         int sum5 = 8;
         solutionNonDistinctVal(arr5,sum5).stream().forEach(e->System.out.print(e+" "));
+        System.out.println("\n##################################");
+
+        // Problem 6: 0/1 Knapsack, find max value of items that can be put in knapsack of at most 1 of each is available. The total weight of the items selected should not exceed weight supported by knapsack.
+        int val[] = { 60, 100, 120 };
+        int wt[] = { 10, 20, 30 };
+        int W = 50;
+        int n = val.length;
+        System.out.print(knapSack(W, wt, val, n));
     }
 }
